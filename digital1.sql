@@ -6,8 +6,8 @@ Drop table if exists temporarydata;
 
 create table temporarydata(
 Institution_Name varchar(500)Unique,
-Mobile_Number_1 bigint(20)Unique,
-Mobile_Number_2 bigint(20)Unique,
+Mobile_Number_1 varchar(20)Unique,
+Mobile_Number_2 varchar(20)Unique,
 Email_Id_1 varchar(50)Unique,
 Email_Id_2 varchar(50)Unique,
 Address_1 varchar(500),
@@ -16,7 +16,23 @@ Address_3 varchar(500),
 City varchar(50),
 State varchar(50),
 Country varchar(20),
-Postal_Code bigint(11));
+Postal_Code varchar(11));
+
+Drop table if exists error_table;
+
+create table error_table(
+Institution_Name varchar(500)Unique,
+Mobile_Number_1 varchar(20)Unique,
+Mobile_Number_2 varchar(20)Unique,
+Email_Id_1 varchar(50)Unique,
+Email_Id_2 varchar(50)Unique,
+Address_1 varchar(500),
+Address_2 varchar(500),
+Address_3 varchar(500),
+City varchar(50),
+State varchar(50),
+Country varchar(20),
+Postal_Code varchar(11));
 
 Drop table if exists `user`;
 
@@ -58,10 +74,10 @@ Full_Name varchar(500) ,
 First_Name varchar(20) ,
 Last_Name varchar(20) ,
 DOB date,
-Mobile_Number_1 bigint(20),
-Mobile_Number_2 bigint(20),
-Email_Id_1 varchar(50),
-Email_Id_2 varchar(50));
+Mobile_Number_1 varchar(20) Unique,
+Mobile_Number_2 varchar(20) Unique,
+Email_Id_1 varchar(50) Unique,
+Email_Id_2 varchar(50) Unique);
 
 Alter table Contact auto_increment= 200001;
 
@@ -84,7 +100,7 @@ Address_3 varchar(500),
 City varchar(50),
 State varchar(50),
 Country varchar(20),
-Postal_Code bigint(11) ,
+Postal_Code varchar(11) ,
  foreign key(Contact_Id) references Contact(Contact_Id),
 foreign key(Address_Type) references Address_Type(Address_Type)
 );
